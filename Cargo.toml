@@ -1,0 +1,23 @@
+[package]
+name = "default-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Query and set the default app for a file type on macOS, Windows and Linux, and register an app as a handler without an installer."
+license = "MIT"
+repository = "https://github.com/Fankrits/default-rs"
+readme = "README.md"
+keywords = ["default-app", "file-association", "mime", "desktop", "cross-platform"]
+categories = ["os", "filesystem"]
+exclude = [".github/", "tests/"]
+
+[dependencies]
+
+[target.'cfg(target_os = "macos")'.dependencies]
+core-foundation = "0.10"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winreg = "0.56"
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "warn"
+missing_docs = "warn"
